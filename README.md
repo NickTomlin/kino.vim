@@ -1,7 +1,7 @@
-kino.vim ([kino?](https://www.wired.com/2011/11/1107wireless-remote-control/)))
+kino.vim ([kino?](https://www.wired.com/2011/11/1107wireless-remote-control/))
 ---
 
-This is a vim plugin for [kino](https://github.com/nicktomlin/kino) that allows you to control video playback on some sites chrome through a Vim binding.
+This is a Vim plugin for [kino](https://github.com/nicktomlin/kino) that allows you to control video playback on some sites chrome through a Vim binding.
 
 Installation
 ---
