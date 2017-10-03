@@ -141,7 +141,7 @@ let g:vimremote_client_path = get(g:, 'kino_client_path', 'kino')
 
 " open the door for arbitrary commands in the future
 function! kino#action(action_name)
-  call s:job_start([g:vimremote_client_path, a:action_name], {})
+  call s:job_start([g:vimremote_client_path, 'action', a:action_name], {})
 endfunction!
 
 command! -nargs=0 KToggle :call kino#action('toggle')
