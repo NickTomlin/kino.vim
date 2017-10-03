@@ -137,11 +137,11 @@ endfunction
 
 " we expect the executable to be globally available on path
 " by default
-let g:vimremote_client_path = get(g:, 'telekino_client_path', 'telekino')
+let g:vimremote_client_path = get(g:, 'kino_client_path', 'kino')
 
 " open the door for arbitrary commands in the future
-function! telekino#action(action_name)
-  call s:job_start([g:vimremote_client_path, a:action_name], {})
+function! kino#action(action_name)
+  call s:job_start([g:vimremote_client_path, 'action', a:action_name], {})
 endfunction!
 
-command! -nargs=0 TToggle :call telekino#action('toggle')
+command! -nargs=0 KToggle :call kino#action('toggle')
