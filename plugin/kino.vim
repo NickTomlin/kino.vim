@@ -144,4 +144,4 @@ function! kino#action(action_name)
   call s:job_start([g:vimremote_client_path, 'action', a:action_name], {})
 endfunction!
 
-command! -nargs=0 KToggle :call kino#action('toggle')
+command! -nargs=1 KAction :call kino#action(<f-args>)

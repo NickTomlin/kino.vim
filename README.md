@@ -1,26 +1,25 @@
 kino.vim ([kino?](https://www.wired.com/2011/11/1107wireless-remote-control/))
 ---
 
-This is a Vim plugin for [kino](https://github.com/nicktomlin/kino) that allows you to control video playback on some sites chrome through a Vim binding.
+This is a Vim plugin for [kino](https://github.com/nicktomlin/kino) that allows you to perform browser actions from the comfort of the best text editor.
 
 Installation
 ---
 
-1. Follow the [kino installation instructions](https://github.com/nicktomlin/kino)
+1. Follow the [kino installation instructions](https://github.com/nicktomlin/kino) (install the kino client/server and extension)
 2. Add this to your favorite plugin manager `Plug 'nicktomlin/remote.vim'` (or manually clone this repo and add it to your vim runtime path)
 
 Usage
 ---
 
-Vim remote exposes the following commands:
+`kino.vim` exposes the `:KAction` command which takes one argument, the name of the action configured in the Kino extension. E.g. to dispatch the `toggle` action to the currently active tab:
+
+```viml
+:Kaction toggle
+```
+
+To bind this to a shortcut, you can use a simple mapping:
 
 ```
-KToggle - play
-```
-
-
-Optionally: use the following bindings:
-
-```
-nmap <silent> <LocalLeader>vt :KToggle<CR>
+nmap <silent> <LocalLeader>kt :KAction toggle<CR>
 ```
