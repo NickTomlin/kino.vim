@@ -1,5 +1,6 @@
 " === The actual plugin code is very short and at the _bottom_ of the file
-" Why go to all this effort? I want 
+" Why go to all this effort? I want to ensure message dispatch happens async
+" to enable a silky smooth experience
 " {{{ async.vim
 " Author: Prabir Shrestha <mail at prabir dot me>
 " License: The MIT License
@@ -135,13 +136,22 @@ function! s:job_start(cmd, opts) abort
 endfunction
 " }}}
 
-" we expect the executable to be globally available on path
+" we expect the node executable to be globally available on path
 " by default
 let g:vimremote_client_path = get(g:, 'kino_client_path', 'kino')
 
-" open the door for arbitrary commands in the future
 function! kino#action(action_name)
+  let g:kino_last_action = a:action_name
   call s:job_start([g:vimremote_client_path, 'action', a:action_name], {})
 endfunction!
 
+function! kino#last_action()
+  if(exists('g:kino_last_action'))
+    :call kino#action(g:kino_last_action)
+  else
+    echom "Kino: No last action defined"
+  endif
+endfunction!
+
 command! -nargs=1 KAction :call kino#action(<f-args>)
+command! -nargs=0 KLastAction :call kino#last_action()

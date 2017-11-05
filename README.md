@@ -22,4 +22,6 @@ To bind this to a shortcut, you can use a simple mapping:
 
 ```
 nmap <silent> <LocalLeader>kt :KAction toggle<CR>
+" repeat last kino action
+nmap <silent> <LocalLeader>kl :KLastAction<CR>
 ```
